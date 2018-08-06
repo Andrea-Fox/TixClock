@@ -94,7 +94,7 @@ void loop() {
     int nLedOraUn = 9;
     int nLedMinDec = 6;
     int nLedMinUn = 9;
-    ledAccesi(ledOraDec, nLedOraDec, oraDec, 1);           il numero di elementi da illuminare e il colore(attraverso un int)
+    ledAccesi(ledOraDec, nLedOraDec, oraDec, 1);         
     ledAccesi(ledOraUn, nLedOraUn, oraUn, 2);
     ledAccesi(ledMinDec, nLedMinDec, minDec, 3);
     ledAccesi(ledMinUn, nLedMinUn, minUn, 4);
