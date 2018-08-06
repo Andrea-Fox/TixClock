@@ -47,7 +47,7 @@ void setup() {
     strip.setPixelColor(tutti[i], strip.Color( 255 , 0, 0));
   }
   strip.show(); // Initialize all pixels to 'off'
-  delay(1000);     //mettere a 5000!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  delay(1000);    
   for(int i=0; i<27; i++){    //spegne tutti i led
     strip.setPixelColor(tutti[i], strip.Color( 0, 0, 0));
   }
@@ -56,7 +56,7 @@ void setup() {
   delay(1000);
 
   ora =  rtc.getTimeStr();
-    oraDec = (int) ora[0] -48;      //con il cast viene restituito il valore in codice ASCII e per questo va tolto 48 (i numeri in ASCII partono da 48)
+    oraDec = (int) ora[0] -48;      
     oraUn = (int) ora[1] -48;
     minDec = (int) ora[3] -48;
     minUn = (int) ora[4] -48;
@@ -64,7 +64,7 @@ void setup() {
     int nLedOraUn = 9;
     int nLedMinDec = 6;
     int nLedMinUn = 9;
-    ledAccesi(ledOraDec, nLedOraDec, oraDec, 1);          //avvio la funzione per la scelta dei led da illuminare e ci passo il vettore, il numero di elementi(che poi è il massimo di led che si possono illuminare), il numero di elementi da illuminare e il colore(attraverso un int)
+    ledAccesi(ledOraDec, nLedOraDec, oraDec, 1);          
     ledAccesi(ledOraUn, nLedOraUn, oraUn, 2);
     ledAccesi(ledMinDec, nLedMinDec, minDec, 3);
     ledAccesi(ledMinUn, nLedMinUn, minUn, 4);
@@ -86,7 +86,7 @@ void loop() {
     }
     
     ora =  rtc.getTimeStr();
-    oraDec = (int) ora[0] -48;      //con il cast viene restituito il valore in codice ASCII e per questo va tolto 48 (i numeri in ASCII partono da 48)
+    oraDec = (int) ora[0] -48;      
     oraUn = (int) ora[1] -48;
     minDec = (int) ora[3] -48;
     minUn = (int) ora[4] -48;
@@ -94,18 +94,16 @@ void loop() {
     int nLedOraUn = 9;
     int nLedMinDec = 6;
     int nLedMinUn = 9;
-    ledAccesi(ledOraDec, nLedOraDec, oraDec, 1);          //avvio la funzione per la scelta dei led da illuminare e ci passo il vettore, il numero di elementi(che poi è il massimo di led che si possono illuminare), il numero di elementi da illuminare e il colore(attraverso un int)
+    ledAccesi(ledOraDec, nLedOraDec, oraDec, 1);           il numero di elementi da illuminare e il colore(attraverso un int)
     ledAccesi(ledOraUn, nLedOraUn, oraUn, 2);
     ledAccesi(ledMinDec, nLedMinDec, minDec, 3);
     ledAccesi(ledMinUn, nLedMinUn, minUn, 4);
-    delay(0);   //mettere a 5000!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
     
  
 }
 
 void ledAccesi(int vett[], int n, int w, int colore) {
-  boolean vettBool[n];      //vettore dei booleani, che segna quali led vanno accesi; si inizializza tutto falso
+  boolean vettBool[n];      
   for (int i = 0; i < n; i++)
     vettBool[i] = false;      
   int vettControllo[w];
@@ -138,10 +136,10 @@ void ledAccesi(int vett[], int n, int w, int colore) {
   for (int i = 0; i < n; i++) {
     if (vettBool[i] == true) {
       switch (colore) {
-        case 1: strip.setPixelColor(vett[i], strip.Color(255, 0, 0));    break;    //la decina delle ore si illumina di rosso
-        case 2: strip.setPixelColor(vett[i], strip.Color(0, 255, 0));   break;    //l'unità delle ore si illumina di verde
-        case 3: strip.setPixelColor(vett[i], strip.Color(255, 255, 0));   break;    //la decina dei minuti si illumina di giallo
-        case 4: strip.setPixelColor(vett[i], strip.Color(0, 0, 255));    break;   //l'unità dei minuti si illumina di blu
+        case 1: strip.setPixelColor(vett[i], strip.Color(255, 0, 0));    break;    // hour tens' color
+        case 2: strip.setPixelColor(vett[i], strip.Color(0, 255, 0));   break;    //hour units' color 
+        case 3: strip.setPixelColor(vett[i], strip.Color(255, 255, 0));   break;    //minutes tens' color
+        case 4: strip.setPixelColor(vett[i], strip.Color(0, 0, 255));    break;   //minutes units' color
         default: strip.setPixelColor(vett[i], strip.Color(0, 0, 0));
       }
     }
